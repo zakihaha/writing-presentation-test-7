@@ -4,92 +4,23 @@
 
 Assalamu'alaikum Wr. Wb. Di markdown ini saya akan menjelaskan berbagai materi yang telah saya pelajari selama mengikuti kegiatan `Kampus Merdeka Skilvul Tech4Impact pada track Backend Web Development`.
 
-- [Database MySQL Lanjutan]
-- [Authentication & Authorization]
-- [Sequelize]
-
-## Database MySQL Lanjutan
-### Pengertian
-Database adalah kumpulan informasi yang disimpan didalam komputer secara sistematik dan saling berelasi. Database merupakan sekumpulan tabel yang berisikan informasi untuk diolah yang kemudian data tersebut bisa digunakan di dalam sebuah sistem. 
-
-### Relasi di MySQL
-#### One to Many
-Paling Sering Digunakan dan Satu baris dalam tabel dapat memiliki beberapa baris di table relasinya
-
-#### Many to Many
-Digunakan ketika kedua tabel yang berelasi dapat memiliki beberapa baris di tabel relasinya.
-
-#### One to One
-Diimplementasikan dengan cara yang sama seperti One to Many tetapi dengan kondisi tambahan (foreign key merupakan primary key)
-
-### Database Normalization
-Database Normalization merupakan teknik analisis data yang mengorganisasikan atribut-atribut data dengan cara mengelompokkan sehingga terbentuk entitas yang non-redundant, stabil, dan fleksible. Tujuannya adalah:
-- Menghilangkan redundan data pada database.
-- Memudahkan juka ada perubahan struktur table database.
-- Memperkecil pengaruh jika ada perubahan dari struktur table database.
-
-### Macam - Macam Key
-- Candidate Key
-Kumpulan satu atau lebih fields/columns yang dapat mengidentifikasi record secara unik dalam tabel. Setiap Candidate Key bisa digunakan sebagai Primary Key. Bisa jadi ada beberapa Candidate Keys di dalam satu tabel.
-
-- Primary Key
-Kumpulan satu atau lebih fields/columns dari sebuah tabel yang secara unik mengidentifikasi sebuah record dalam tabel database. Valuenya tidak boleh berupa null ataupun duplicate value. Hanya boleh salah satu Candidate Key yang bisa menjadi Primary Key.
-
-- Alternate Key
-key yang bisa digunakan menjadi primary key. Pada dasarnya, Key ini merupakan candidate key yang tidak dijadikan  primary key.
-
-- Unique Key
-Kumpulan dari satu atau lebih fields/columns di sebuah table database yang secara unik mengidentifikasi sebuah record dalam table database tersebut. Hampir sama dengan Primary key, namun value dari Unique Key bisa berupa satu buah null value di dalam sebuah table database, dan Unique Key tidak bisa memiliki duplicate values
-
-- Foreign Key
-Field di sebuah table database yang menjadi Primary Key di table database lain. Value dari Foreign key bisa menerima multiple null dan duplicate values.
-
-
-## Authentication & Authorization
-### Authentication
-Authentication digunakan untuk memverifikasi siapa Anda. Misalnya, katakanlah Anda pergi ke konser. Di pintu depan, penjaga keamanan meminta untuk melihat tiket dan ID Anda untuk memverifikasi bahwa nama di ID Anda cocok dengan nama di tiket Anda.
-
-#### Faktor
-- Sesuatu yang Anda ketahui, seperti nama pengguna dan kata sandi.
-- Kepemilikan, seperti kartu keamanan atau perangkat seluler
-- Inheren adalah sesuatu tentang Anda, yang umumnya mengacu pada data biometrik seperti sidik jari.
-
-### Authorization
-Authorization adalah verifikasi atas apa yang boleh Anda lakukan. Kembali ke contoh konser, setelah penjaga keamanan mengautentikasi Anda, Anda kemudian memberikan tiket Anda ke penjaga keamanan lain yang kemudian hanya mengizinkan Anda masuk ke Penerimaan Umum (bukan bagian VIP). Authorization sangat penting untuk keamanan web, dan bertanggung jawab atas segala hal mulai dari mencegah pengguna memodifikasi akun satu sama lain, melindungi aset back-end dari penyerang, hingga memberikan akses terbatas ke layanan eksternal.
-
-### Token Based Authentication using JWT
-JSON Web Token, yang berarti token ini menggunakan JSON (Javascript Object Notation) berbentuk string panjang yang sangat random, lalu token ini memungkinkan kita untuk mengirimkan data yang dapat diverifikasi oleh dua pihak atau lebih.
-
-#### Cara Kerja
-Ketika users berhasil melakukan Login maka server akan memberikan sebuah Token. Nanti Token tersebut akan disimpan oleh users pada Local Storage atau Cookies Browser dan bila users ingin mengakses halaman halaman tertentu maka harus menyertakan token tersebut. Untuk itu users akan mengirim balik token yang dikasih diawal tadi sebagai bukti bila user ini, sudah melakukan login. Sekarang kita akan lihat struktur dasarnya Tokennya dimana terdiri dari tiga bagian yaitu yang pertama header lalu kedua bagian payloadnya atau datanya dan yang ketiga adalah bagian verify signature.
-
-#### Komponen
-- Header
-Header biasanya terdiri dari dua bagian: jenis token, yaitu JWT, dan algoritma penandatanganan yang digunakan, seperti HMAC SHA256 atau RSA.
-```sh
-{
-  "alg": "HS256",
-  "typ": "JWT"
-}
-```
-
-- Payload
-Infomasi atau data yang ingin kita kirimkan. Dalam penerapannya di otentikasi atau pun otorisasi, biasanya data ini berupa data yang sifatnya unik bagi user, seperti: email, id.
-```sh
-{
-  "id": "4",
-  "name": "Zaki",
-  "address": "Klaten"
-}
-```
-
-- Signature
-Signature adalah hasil dari Hash atau gabungan dari isi encode Header dan Payloadnya lalu ditambahkan kode secretnya. Signature ini berguna untuk memverifikasi bahwa header maupun payload yang ada dalam token. Signature-nya sendiri tidak mungkin dapat diakali, karena sudah dalam berbentuk hash satu arah.
-
-Dan hasil ketiga bagian tersebut akan digabung dan otomatis di encode menjadi Token string random panjang seperti berikut:
-```sh
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
-```
+  - [Sequelize](#sequelize)
+    - [Pengertian](#pengertian)
+    - [ORM](#orm)
+    - [Penggunaan](#penggunaan)
+  - [MongoDB](#mongodb)
+    - [Pengertian](#pengertian-1)
+    - [NoSQL](#nosql)
+    - [Kelebihan](#kelebihan)
+    - [Kekurangan](#kekurangan)
+    - [Komponen MongoDB](#komponen-mongodb)
+  - [Mongoose](#mongoose)
+    - [Pengertian](#pengertian-2)
+    - [Penggunaan](#penggunaan-1)
+  - [Docker](#docker)
+    - [Pengertian](#pengertian-3)
+    - [Alasan Menggunakan Docker](#alasan-menggunakan-docker)
+    - [Fungsi](#fungsi)
 
 ## Sequelize
 ### Pengertian
@@ -135,5 +66,95 @@ npx sequelize-cli db:migrate
 ```
 
 
+## MongoDB
+### Pengertian
+MongoDB adalah open-source database yang menggunakan document-oriented data model dan non-structured query language. Database ini cukup canggih. Bahkan, ia dikatakan sebagai salah satu sistem dan database NoSQL (Not only SQL) yang paling mutakhir saat ini. Karena kapasitasnya, MongoDB dapat digunakan untuk menyimpan volume data yang besar. MongoDB sering dipakai untuk aplikasi berbasis Cloud, Big Data maupun Grid Computing.
 
+### NoSQL
+NoSQL adalah singkatan dari Not Only SQL. Database management system ini bersifat tanpa relasi (non-relational). Artinya, NoSQL bisa mengelola database dengan skema yang fleksibel dan tidak membutuhkan query yang kompleks. Dengan pendekatan ini, NoSQL mempunyai skalabilitas tinggi untuk dapat berkembang sesuai dengan kebutuhan data yang ada. Tak heran, database management ini dianggap paling cocok untuk mengolah big data yang selalu berubah-ubah sekalipun.
+
+### Kelebihan
+- Sistem tidak membutuhkan Tabel
+- Tidak perlu menggunakan Tabel yang terstruktur
+- By Default sudah menggunakan JSON(JavaScript Object Notation), sehingga memudahkan integrasi dengan JavaScript
+- Performa lebih cepat dengan kemampuan menampung banyak data yang bervariasi
+
+### Kekurangan
+- Tidak mendukung transaksi
+- Masalah konsistensi data
+- Menggunakan banyak memory
+- Hanya bisa menampung maksimal 16MB disetiap document
+
+### Komponen MongoDB
+#### Database
+Database adalah wadah untuk menyimpan berbagai macam Collection
+
+#### Collection
+Collection adalah tempat kumpulan dari berbagai macam document, sehingga collection sering disamakan dengan tabel pada SQL
+
+#### Document
+Document adalah unit terkecil yang berada pada MongoDB.
+
+
+## Mongoose
+### Pengertian
+Mongoose adalah library Object Modelling MongoDB untuk NodeJS. Mongoose bisa digunakan untuk mengelola hubungan antara data, menyediakan validasi dan juga digunakan untuk menerjemahkan antara objek dalam kode dan representasi Objek tersebut di MongoDB.
+
+### Penggunaan
+- Install dengan npm
+```sh
+npm install mongoose
+```
+
+- Membuat koneksi
+```sh
+const mongoose = require('mongoose');
+
+main().catch(err => console.log(err));
+
+async function main() {
+  await mongoose.connect('mongodb://localhost:27017/test');
+  
+  // use `await mongoose.connect('mongodb://user:password@localhost:27017/test');` if your database has auth enabled
+}
+```
+
+- Mendefinisikan schema untuk model
+```sh
+const mongoose = require('mongoose')
+const { Schema, model } = mongoose
+
+const userSchema = new Schema(
+    {
+        name: String,
+        age: Number,
+        email: String,
+        password: String
+    },
+    { timestamps: true }
+)
+
+const User = mongoose.model('User', userSchema)
+```
+
+## Docker
+### Pengertian
+Docker adalah aplikasi untuk menyatukan berbagai file software dan pendukungnya dalam sebuah wadah (container) agar memudahkan proses pengembangan software.
+
+### Alasan Menggunakan Docker
+Dalam pengembangan aplikasi, developer memerlukan virtualisasi di server agar aplikasi bisa berjalan di berbagai platform dengan konfigurasi hardware yang berbeda-beda. Sayangnya, ketika menggunakan virtualisasi, Anda harus menyiapkan satu sistem operasi secara penuh. Jika membutuhkan beberapa virtualisasi, server perlu resource yang besar. Nah, container bisa digunakan sebagai alternatif virtualisasi sehingga tidak perlu menyiapkan sistem operasi secara penuh. Dengan container, ukuran file menjadi lebih kecil dibandingkan virtualisasi yang biasa digunakan.
+
+### Fungsi
+- Mempermudah Pengembangan Aplikasi
+Docker bisa mempermudah pekerjaan developer ketika mengembangkan aplikasi. Alasannya, Docker lebih hemat resource dan mampu menyediakan environment yang stabil untuk dijalankan di perangkat apapun
+- Menyederhanakan Konfigurasi
+Docker tidak memiliki overhead sehingga developer bisa menjalankan aplikasi yang diuji tanpa konfigurasi tambahan.
+- Memudahkan Pengembangan Kode Pipeline
+Developer bisa memanfaatkan Docker container sebagai tempat pengujian kode Pipeline beserta tools yang diperlukan dengan lebih mudah.
+- Bisa Digunakan untuk Debugging
+Adanya fitur debug bisa membantu developer untuk mengatasi masalah pada aplikasi tanpa perlu bersusah payah meninggalkan environment di Docker.
+- Mendukung Multitenancy
+Docker cocok digunakan untuk membuat aplikasi berstruktur multitenance seperti Software as a Service (SaaS). Dcoker bisa membuat lebih dari satu environment yang terisolasi dan menjalankan objek aplikasi untuk setiap tenant.
+- Meningkatkan Sumber Daya dengan Cepat
+Dengan Docker, peningkatan sumber daya perangkat dapat dilakukan dengan cepat sehingga durasi pengembangan software  lebih singkat.
 
